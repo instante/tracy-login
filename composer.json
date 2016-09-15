@@ -15,10 +15,14 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "tracy/tracy": "~2.3"
+        "tracy/tracy": "~2.3",
+        "nette/security": "~2.3",
+        "latte/latte": "~2.3",
+        "nette/application": "~2.3"
     },
     "require-dev": {
-        "instante/php-test-suite": "@dev"
+        "instante/php-test-suite": "@dev",
+        "jakub-onderka/php-parallel-lint": "~0.6"
     },
     "autoload": {
         "psr-4": {

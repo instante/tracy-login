@@ -1,0 +1,22 @@
+<h1>Sign in as...</h1>
+
+<style>
+    .debug-login-active-user {
+        background-color: #00ff59 !important;
+    }
+</style>
+
+<div class="nette-inner">
+    <a href="{$basePath}{$logoutRoute}">Logout</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Identifier</th>
+        </tr>
+
+        <tr n:foreach="$users as $user">
+            <td n:class="$user->getId() === $currentId ? debug-login-active-user"><a href="{$basePath}{$loginRoute}/?id={$user->getId()}">{$user->getId()}</a></td>
+            <td n:class="$user->getId() === $currentId ? debug-login-active-user"><a href="{$basePath}{$loginRoute}/?id={$user->getId()}">{$user->$identifier()}</a></td>
+        </tr>
+    </table>
+</div>

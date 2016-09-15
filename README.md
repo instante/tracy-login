@@ -13,3 +13,52 @@ The best way to install Instante Tracy Login is using  [Composer](http://getcomp
 ```sh
 $ composer require instante/tracy-login
 ```
+
+## Configuration
+
+Add new extension to config (_e.g. extensions.neon_):
+
+```
+extensions:
+    debugLogin: Instante\Tracy\Login\DI\DebugLoginExtension
+```
+
+Then you should enable it in your local config. **Never do that on production server!**
+
+```
+debugLogin:
+    enable: true
+```
+
+## Optional configuration
+
+Login bar natively works with Instante/skeleton doctrine user. Default User class is App\Model\User\User. You can change it in setup:
+
+```
+debugLogin:
+    dao:
+        entity: Your\Custom\User
+```
+Or
+```
+debugLogin:
+    dao: "Instante\Tracy\Login\DoctrineUserDao(Your\Custom\User)"
+```
+
+You can write your own UserDao which implements IUserDao. Then you have to update setup:
+
+```
+debugLogin:
+    dao: "Your\Custom\Dao"
+```
+
+## Identifier
+
+Default identifier is 'email' so method 'getEmail()' will be called. You can change it in setup:
+
+```
+debugLogin:
+    identifier: "fullName"
+```
+
+and then 'getFullName()' will be called.
