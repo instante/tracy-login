@@ -18,7 +18,7 @@
         "tracy/tracy": "~2.3"
     },
     "require-dev": {
-        "insatnte/php-test-suite": "@dev"
+        "instante/php-test-suite": "@dev"
     },
     "autoload": {
         "psr-4": {
