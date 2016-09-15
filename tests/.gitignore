@@ -1,0 +1,5 @@
+coverage.dat
+*.actual
+*.expected
+php.ini
+tmp

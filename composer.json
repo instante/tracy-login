@@ -1,0 +1,28 @@
+{
+    "name": "instante/tracy-login",
+    "type": "library",
+    "description": "Allows quick login to any user account using Tracy bar panel",
+    "keywords": [
+        "nette",
+        "instante",
+        "tracy",
+        "login"
+    ],
+    "license": [
+        "BSD-3-Clause",
+        "GPL-2.0",
+        "GPL-3.0"
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "tracy/tracy": "~2.3"
+    },
+    "require-dev": {
+        "insatnte/php-test-suite": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Instante\\Tracy\\Login\\": "src/"
+        }
+    }
+}
