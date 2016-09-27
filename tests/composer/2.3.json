@@ -1,5 +1,5 @@
 {
     "require-dev": {
-        "tracy/tracy": "2.3.*",
+        "tracy/tracy": "2.3.*"
     }
 }
