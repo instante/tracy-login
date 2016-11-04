@@ -27,7 +27,7 @@ Then you should enable it in your local config. **Never do that on production se
 
 ```
 debugLogin:
-    enable: true
+    enabled: true
 ```
 
 ## Optional configuration

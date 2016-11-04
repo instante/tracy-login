@@ -66,7 +66,7 @@ class DebugLoginExtension extends CompilerExtension
             ]);
 
             $builder->getDefinition($builder->getByType('Nette\Application\IRouter') ?: 'router')
-                ->addSetup('Instante\DebugLogin\DebugLogin::addRoutes');
+                ->addSetup('Instante\Tracy\Login\DebugLogin::addRoutes');
         }
 
     }
