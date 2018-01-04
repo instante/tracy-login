@@ -26,8 +26,8 @@ class DebugLogin implements IBarPanel
     /** @var User */
     private $user;
 
-    /** @var string */
-    private $identifier;
+    /** @var array */
+    private $identifiers;
 
     /**
      * @param IUserDao $userDao
@@ -96,7 +96,7 @@ class DebugLogin implements IBarPanel
         ob_start();
         $engine->render(__DIR__ . '/templates/panel.latte', [
             'users' => $users,
-            'identifier' => $this->getIdentifierMethodName(),
+            'identifiers' => $this->getIdentifiersMethodName(),
             'currentId' => $this->user->getId(),
             'basePath' => $this->request->getUrl()->getBasePath(),
             'loginRoute' => self::ROUTE_LOGIN,
@@ -107,12 +107,14 @@ class DebugLogin implements IBarPanel
 
     public function setConfig($params)
     {
-        $this->identifier = $params['identifier'];
+        $this->identifiers = is_array($params['identifier']) ? $params['identifier'] : [$params['identifier']];
     }
 
-    private function getIdentifierMethodName()
+    private function getIdentifiersMethodName()
     {
-        return 'get' . ucfirst($this->identifier);
+        return array_map(function ($identifier) {
+            return 'get' . ucfirst($identifier);
+        }, $this->identifiers);
     }
 
     /**

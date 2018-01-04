@@ -1,22 +1,29 @@
 <h1>Sign in as...</h1>
 
 <style>
-    .debug-login-active-user {
+    .debug-login-active-user td {
         background-color: #00ff59 !important;
+    }
+
+    .instante-clickable-row:hover td {
+        cursor: pointer;
+        background-color: #00ff5959 !important;
     }
 </style>
 
-<div class="nette-inner">
+<div class="tracy-inner">
     <a href="{$basePath}{$logoutRoute}">Logout</a>
     <table>
         <tr>
             <th>ID</th>
-            <th>Identifier</th>
+            <th n:foreach="$identifiers as $identifier">{$identifier}</th>
         </tr>
 
-        <tr n:foreach="$users as $user">
-            <td n:class="$user->getId() === $currentId ? debug-login-active-user"><a href="{$basePath}{$loginRoute}/?id={$user->getId()}">{$user->getId()}</a></td>
-            <td n:class="$user->getId() === $currentId ? debug-login-active-user"><a href="{$basePath}{$loginRoute}/?id={$user->getId()}">{$user->$identifier()}</a></td>
+        <tr n:foreach="$users as $user"
+                n:class="'instante-clickable-row', $user->getId() === $currentId ? debug-login-active-user"
+                n:attr="onclick => 'window.location=' . '\'' . $basePath . $loginRoute . '/?id=' . $user->getId(). '\''">
+            <td>{$user->getId()}</td>
+            <td n:foreach="$identifiers as $identifier">{$user->$identifier()}</td>
         </tr>
     </table>
 </div>
