@@ -61,4 +61,12 @@ debugLogin:
     identifier: "fullName"
 ```
 
-and then 'getFullName()' will be called.
+and then 'getFullName()' will be called. 
+But you can add as many methods as you want:
+
+```
+debugLogin:
+    identifier: {"email", "fullName"}
+```
+
+and then both, 'getEmail()' and 'getFullName()' will be called.
